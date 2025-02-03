@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>นาฬิกาดิจิตอล</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f0f0f0;
+    }
+    #clock {
+      font-size: 60px;
+      font-weight: bold;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>นาฬิกาดิจิตอล</h1>
+  <div id="clock">00:00:00</div>
+
+  <script>
+    // ฟังก์ชันที่จะทำการอัพเดตเวลา
+    function updateClock() {
+      const now = new Date(); // ดึงข้อมูลเวลาปัจจุบัน
+      let hours = now.getHours(); // ชั่วโมง
+      let minutes = now.getMinutes(); // นาที
+      let seconds = now.getSeconds(); // วินาที
+
+      // ทำให้เลขน้อยกว่าหมายเลข 10 แสดงเป็น 2 หลัก (เช่น 09 แทนที่จะเป็น 9)
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      // แสดงเวลาใน div #clock
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // ใช้ setInterval เพื่อให้เวลาอัพเดตทุกๆ 1000 มิลลิวินาที (1 วินาที)
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
