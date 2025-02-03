@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค้นหาและกรองข้อมูล</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>ค้นหาข้อมูล</h2>
+
+        <!-- ช่องค้นหาชื่อ -->
+        <input type="text" id="searchInput" onkeyup="searchData()" placeholder="ค้นหาชื่อ...">
+        
+        <!-- ตัวเลือกการกรองหมวดหมู่ -->
+        <label for="category">กรองตามหมวดหมู่:</label>
+        <select id="categoryFilter" onchange="searchData()">
+            <option value="">เลือกหมวดหมู่</option>
+            <option value="กีฬา">กีฬา</option>
+            <option value="เทคโนโลยี">เทคโนโลยี</option>
+            <option value="การศึกษา">การศึกษา</option>
+        </select>
+
+        <!-- ตารางข้อมูล -->
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>ชื่อ</th>
+                    <th>หมวดหมู่</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ฟุตบอล</td>
+                    <td>กีฬา</td>
+                </tr>
+                <tr>
+                    <td>คอมพิวเตอร์</td>
+                    <td>เทคโนโลยี</td>
+                </tr>
+                <tr>
+                    <td>หนังสือเรียน</td>
+                    <td>การศึกษา</td>
+                </tr>
+                <tr>
+                    <td>บาสเกตบอล</td>
+                    <td>กีฬา</td>
+                </tr>
+                <tr>
+                    <td>โทรศัพท์มือถือ</td>
+                    <td>เทคโนโลยี</td>
+                </tr>
+                <tr>
+                    <td>วิทยาศาสตร์</td>
+                    <td>การศึกษา</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
