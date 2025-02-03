@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable and Calculation Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // ฟังก์ชันการคำนวณ
+        function calculate() {
+            // รับค่าจาก input field
+            const number1 = parseFloat(document.getElementById("number1").value);
+            const number2 = parseFloat(document.getElementById("number2").value);
+
+            // ตรวจสอบว่าเป็นตัวเลขหรือไม่
+            if (isNaN(number1) || isNaN(number2)) {
+                alert("กรุณาใส่ตัวเลขทั้งสองช่อง");
+                return;
+            }
+
+            // การคำนวณ
+            const sum = number1 + number2;
+            const difference = number1 - number2;
+            const product = number1 * number2;
+            const quotient = number1 / number2;
+
+            // แสดงผลลัพธ์
+            document.getElementById("result").innerHTML = `
+                ผลบวก: ${sum} <br>
+                ผลลบ: ${difference} <br>
+                ผลคูณ: ${product} <br>
+                ผลหาร: ${quotient.toFixed(2)}
+            `;
+        }
+    </script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Variable and Calculation</h1>
+        
+        <!-- ช่องป้อนตัวเลข -->
+        <input 
+            type="number" 
+            id="number1" 
+            placeholder="กรอกตัวเลขแรก" 
+            class="border border-gray-300 rounded-lg p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+        <input 
+            type="number" 
+            id="number2" 
+            placeholder="กรอกตัวเลขที่สอง" 
+            class="border border-gray-300 rounded-lg p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+
+        <!-- ปุ่มคำนวณ -->
+        <button 
+            onclick="calculate()" 
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
+            คำนวณ
+        </button>
+
+        <!-- พื้นที่แสดงผลลัพธ์ -->
+        <div id="result" class="mt-4 text-gray-700 text-lg"></div>
+    </div>
+
+</body>
+</html>
