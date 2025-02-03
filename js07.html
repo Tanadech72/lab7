@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การใช้งาน Objects</title>
+</head>
+<body>
+
+<h2>ข้อมูลผู้ใช้</h2>
+<p id="userInfo"></p>
+<button id="showUser">แสดงข้อมูลผู้ใช้</button>
+
+<script>
+    // สร้าง Object เกี่ยวกับผู้ใช้
+    let user = {
+        firstName: "สมชาย",
+        lastName: "ใจดี",
+        age: 25,
+        email: "somchai@example.com",
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+
+    // ดึงปุ่มและส่วนที่จะแสดงข้อมูล
+    let button = document.getElementById("showUser");
+    let userInfo = document.getElementById("userInfo");
+
+    // Event Listener เมื่อกดปุ่ม
+    button.addEventListener("click", function() {
+        userInfo.innerHTML = `
+            <strong>ชื่อเต็ม:</strong> ${user.fullName()} <br>
+            <strong>อายุ:</strong> ${user.age} ปี <br>
+            <strong>อีเมล:</strong> ${user.email}
+        `;
+    });
+</script>
+
+</body>
+</html>
