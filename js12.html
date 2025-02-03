@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ตัวนับจำนวนคลิก</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #clickCounter {
+      font-size: 30px;
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>ตัวนับจำนวนคลิก</h1>
+  <p id="clickCounter">จำนวนคลิก: 0</p>
+  <button id="clickButton">คลิกที่นี่</button>
+
+  <script>
+    // ตัวแปรเก็บจำนวนคลิก
+    let clickCount = 0;
+
+    // การอ้างอิงถึงปุ่มและข้อความ
+    const clickButton = document.getElementById('clickButton');
+    const clickCounter = document.getElementById('clickCounter');
+
+    // ฟังก์ชันสำหรับอัพเดทจำนวนคลิก
+    clickButton.addEventListener('click', function() {
+      clickCount++; // เพิ่มจำนวนคลิก
+      clickCounter.textContent = 'จำนวนคลิก: ' + clickCount; // อัพเดท DOM
+    });
+  </script>
+</body>
+</html>

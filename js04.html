@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Loops Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showFruits() {
+            // สร้าง Array เก็บรายชื่อผลไม้
+            const fruits = ["Apple", "Banana", "Cherry", "Durian", "Grapes"];
+            
+            // พื้นที่แสดงผล
+            const resultDiv = document.getElementById("result");
+
+            // ล้างข้อมูลเก่าที่แสดงอยู่
+            resultDiv.innerHTML = "";
+
+            // ใช้ Loop แสดงรายการผลไม้
+            for (let i = 0; i < fruits.length; i++) {
+                const fruit = fruits[i];
+                resultDiv.innerHTML += `<li class="mb-2">${i + 1}. ${fruit}</li>`;
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Arrays and Loops Example</h1>
+        <p class="text-gray-700 mb-6">
+            กดปุ่มเพื่อแสดงรายการผลไม้ใน Array
+        </p>
+
+        <!-- ปุ่มแสดงผล -->
+        <button 
+            onclick="showFruits()" 
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
+            แสดงรายการผลไม้
+        </button>
+
+        <!-- พื้นที่แสดงผลลัพธ์ -->
+        <ul id="result" class="mt-4 text-gray-700 text-lg list-disc list-inside"></ul>
+    </div>
+
+</body>
+</html>

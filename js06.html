@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event Listener</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #coordinates {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>ติดตามเมาส์ & เปลี่ยนสีพื้นหลัง</h2>
+<p id="coordinates">ตำแหน่งเมาส์: (0, 0)</p>
+<button id="changeColor">เปลี่ยนสีพื้นหลัง</button>
+
+<script>
+    let button = document.getElementById("changeColor");
+    let coordinates = document.getElementById("coordinates");
+
+    // Event Listener สำหรับเปลี่ยนสีพื้นหลังเมื่อคลิกปุ่ม
+    button.addEventListener("click", function() {
+        let randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+    });
+
+    // Event Listener สำหรับติดตามการเคลื่อนที่ของเมาส์
+    document.addEventListener("mousemove", function(event) {
+        let x = event.clientX;
+        let y = event.clientY;
+        coordinates.textContent = `ตำแหน่งเมาส์: (${x}, ${y})`;
+    });
+</script>
+
+</body>
+</html>
+

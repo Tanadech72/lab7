@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Example</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // ฟังก์ชันแสดงคำทักทาย
+        function greetUser() {
+            const userName = document.getElementById("nameInput").value; // รับค่าจากช่อง input
+            if (userName.trim() === "") {
+                alert("กรุณาใส่ชื่อก่อนกดปุ่มทักทาย");
+            } else {
+                document.getElementById("greetingMessage").textContent = `สวัสดีคุณ ${userName}`;
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Greeting Example</h1>
+        
+        <!-- ช่องป้อนข้อความ -->
+        <input 
+            type="text" 
+            id="nameInput" 
+            placeholder="กรุณาใส่ชื่อของคุณ" 
+            class="border border-gray-300 rounded-lg p-2 w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+
+        <!-- ปุ่มทักทาย -->
+        <button 
+            onclick="greetUser()" 
+            class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition">
+            ทักทาย
+        </button>
+
+        <!-- ข้อความแสดงคำทักทาย -->
+        <p id="greetingMessage" class="mt-4 text-gray-700 text-lg"></p>
+    </div>
+
+</body>
+</html>

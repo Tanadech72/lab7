@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เกมทายตัวเลข</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 60px;
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #message {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h2>เกมทายตัวเลข 1-100</h2>
+<p>ลองเดาตัวเลขระหว่าง 1 ถึง 100</p>
+<input type="number" id="guessInput" min="1" max="100">
+<button id="checkGuess">ตรวจสอบ</button>
+<button id="resetGame">เริ่มใหม่</button>
+<p id="message"></p>
+
+<script>
+    let randomNumber = Math.floor(Math.random() * 100) + 1; // สุ่มเลข 1-100
+    let message = document.getElementById("message");
+    let guessInput = document.getElementById("guessInput");
+
+    document.getElementById("checkGuess").addEventListener("click", function() {
+        let userGuess = parseInt(guessInput.value);
+        
+        if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+            message.textContent = "กรุณากรอกตัวเลขระหว่าง 1 ถึง 100!";
+            message.style.color = "red";
+        } else if (userGuess === randomNumber) {
+            message.textContent = "ถูกต้อง! คุณชนะแล้ว 🎉";
+            message.style.color = "green";
+        } else if (userGuess > randomNumber) {
+            message.textContent = "มากเกินไป! ลองใหม่ ⬇️";
+            message.style.color = "blue";
+        } else {
+            message.textContent = "น้อยเกินไป! ลองใหม่ ⬆️";
+            message.style.color = "blue";
+        }
+    });
+
+    document.getElementById("resetGame").addEventListener("click", function() {
+        randomNumber = Math.floor(Math.random() * 100) + 1; // สุ่มเลขใหม่
+        message.textContent = "";
+        guessInput.value = "";
+    });
+</script>
+
+</body>
+</html>

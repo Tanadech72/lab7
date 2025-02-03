@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การสร้าง Tab Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tab-container">
+        <!-- แท็บที่ใช้เลือก -->
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab(event, 'tab1')">แท็บ 1</button>
+            <button class="tab-button" onclick="openTab(event, 'tab2')">แท็บ 2</button>
+            <button class="tab-button" onclick="openTab(event, 'tab3')">แท็บ 3</button>
+        </div>
+
+        <!-- เนื้อหาของแท็บ -->
+        <div id="tab1" class="tab-content">
+            <h3>เนื้อหาของแท็บ 1</h3>
+            <p>นี่คือเนื้อหาของแท็บ 1</p>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <h3>เนื้อหาของแท็บ 2</h3>
+            <p>นี่คือเนื้อหาของแท็บ 2</p>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <h3>เนื้อหาของแท็บ 3</h3>
+            <p>นี่คือเนื้อหาของแท็บ 3</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

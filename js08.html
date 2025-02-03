@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การใช้ setInterval</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #timer {
+            font-size: 40px;
+            font-weight: bold;
+            color: red;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>ตัวจับเวลาถอยหลัง</h2>
+<p id="timer">10</p>
+<button id="start">เริ่ม</button>
+<button id="stop">หยุด</button>
+<button id="reset">รีเซ็ต</button>
+
+<script>
+    let countdownStart = 10; // ค่าตั้งต้นของเวลา
+    let countdown = countdownStart;
+    let interval; // ตัวแปรเก็บ setInterval
+
+    // ดึงองค์ประกอบ HTML
+    let timerDisplay = document.getElementById("timer");
+    let startBtn = document.getElementById("start");
+    let stopBtn = document.getElementById("stop");
+    let resetBtn = document.getElementById("reset");
+
+    // ฟังก์ชันเริ่มนับถอยหลัง
+    function startCountdown() {
+        if (!interval) { // ป้องกันการเริ่มซ้ำ
+            interval = setInterval(function() {
+                countdown--;
+                timerDisplay.textContent = countdown;
+
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    interval = null;
+                    timerDisplay.textContent = "หมดเวลา!";
+                }
+            }, 1000);
+        }
+    }
+
+    // ฟังก์ชันหยุดนับถอยหลัง
+    function stopCountdown() {
+        clearInterval(interval);
+        interval = null;
+    }
+
+    // ฟังก์ชันรีเซ็ตตัวจับเวลา
+    function resetCountdown() {
+        clearInterval(interval);
+        interval = null;
+        countdown = countdownStart;
+        timerDisplay.textContent = countdown;
+    }
+
+    // เพิ่ม Event Listeners ให้ปุ่ม
+    startBtn.addEventListener("click", startCountdown);
+    stopBtn.addEventListener("click", stopCountdown);
+    resetBtn.addEventListener("click", resetCountdown);
+</script>
+
+</body>
+</html>
